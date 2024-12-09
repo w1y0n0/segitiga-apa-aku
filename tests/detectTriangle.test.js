@@ -8,6 +8,10 @@ const detectTriangle = (sideA, sideB, sideC) => {
             throw new Error('Strange Triangle');
         }
     });
+
+    if (sideA === sideB && sideA === sideC) {
+        return 'Equilateral Triangle';
+    }
 };
 
 describe('Detect the triangle', () => {
@@ -23,5 +27,9 @@ describe('Detect the triangle', () => {
         expect(() => detectTriangle(1, 2, 'c')).toThrowError('Sides have to be Integer');
 
         expect(() => detectTriangle(' ', 2, 2)).toThrowError('Sides have to be Integer');
+    });
+
+    it('Should detect Equilateral Triangle if all sides are equal', () => {
+        expect(detectTriangle(1, 1, 1)).toEqual('Equilateral Triangle');
     });
 });
