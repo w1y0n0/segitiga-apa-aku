@@ -31,5 +31,6 @@ describe('Detect the triangle', () => {
 
     it('Should detect Equilateral Triangle if all sides are equal', () => {
         expect(detectTriangle(1, 1, 1)).toEqual('Equilateral Triangle');
+        expect(detectTriangle(1, 2, 2)).not.toEqual('Equilateral Triangle');
     });
 });
