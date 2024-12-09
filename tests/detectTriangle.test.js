@@ -21,6 +21,8 @@ const detectTriangle = (sideA, sideB, sideC) => {
     if (sideA === sideB || sideB === sideC) {
         return 'Isosceles Triangle';
     }
+
+    return 'Scalene Triangle';
 };
 
 describe('Detect the triangle', () => {
@@ -49,5 +51,10 @@ describe('Detect the triangle', () => {
         expect(detectTriangle(1, 2, 2)).toEqual('Isosceles Triangle');
 
         expect(detectTriangle(4, 1, 4)).toEqual('Isosceles Triangle');
+    });
+
+    // Sebagaimana biasanya, kita buatkan tesnya dahulu.
+    it('Should detect Scalene Triangle if no sides are the same', () => {
+        expect(detectTriangle(1, 2, 3)).toEqual('Scalene Triangle');
     });
 });
