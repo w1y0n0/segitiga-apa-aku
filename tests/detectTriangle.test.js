@@ -1,15 +1,18 @@
 const detectTriangle = (sideA, sideB, sideC) => {
-    [sideA, sideB, sideC].forEach((side) => {
-        if (!Number.isInteger(side)) {
-            throw new Error('Sides have to be Integer');
-        }
+    // eslint-disable-next-line no-param-reassign
+    [sideA, sideB, sideC] = [sideA, sideB, sideC]
+        .map((side) => {
+            if (!Number.isInteger(side)) {
+                throw new Error('Sides have to be Integer');
+            }
 
-        if (side < 1) {
-            throw new Error('Strange Triangle');
-        }
-    });
+            if (side < 1) {
+                throw new Error('Strange Triangle');
+            }
 
-    [sideA, sideB, sideC] = [sideA, sideB, sideC].sort();
+            return side;
+        })
+        .sort();
 
     if (sideA === sideB && sideA === sideC) {
         return 'Equilateral Triangle';
