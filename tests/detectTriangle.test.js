@@ -12,6 +12,10 @@ const detectTriangle = (sideA, sideB, sideC) => {
     if (sideA === sideB && sideA === sideC) {
         return 'Equilateral Triangle';
     }
+
+    if (sideA === sideB || sideA === sideC || sideB === sideC) {
+        return 'Isosceles Triangle';
+    }
 };
 
 describe('Detect the triangle', () => {
@@ -32,5 +36,11 @@ describe('Detect the triangle', () => {
     it('Should detect Equilateral Triangle if all sides are equal', () => {
         expect(detectTriangle(1, 1, 1)).toEqual('Equilateral Triangle');
         expect(detectTriangle(1, 2, 2)).not.toEqual('Equilateral Triangle');
+    });
+
+    it('Should detect Isosceles Triangle if only two sides are equal', () => {
+        expect(detectTriangle(1, 1, 2)).toEqual('Isosceles Triangle');
+        expect(detectTriangle(1, 2, 1)).toEqual('Isosceles Triangle');
+        expect(detectTriangle(1, 2, 2)).toEqual('Isosceles Triangle');
     });
 });
