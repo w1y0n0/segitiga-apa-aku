@@ -9,11 +9,13 @@ const detectTriangle = (sideA, sideB, sideC) => {
         }
     });
 
+    [sideA, sideB, sideC] = [sideA, sideB, sideC].sort();
+
     if (sideA === sideB && sideA === sideC) {
         return 'Equilateral Triangle';
     }
 
-    if (sideA === sideB || sideA === sideC || sideB === sideC) {
+    if (sideA === sideB || sideB === sideC) {
         return 'Isosceles Triangle';
     }
 };
@@ -42,5 +44,7 @@ describe('Detect the triangle', () => {
         expect(detectTriangle(1, 1, 2)).toEqual('Isosceles Triangle');
         expect(detectTriangle(1, 2, 1)).toEqual('Isosceles Triangle');
         expect(detectTriangle(1, 2, 2)).toEqual('Isosceles Triangle');
+
+        expect(detectTriangle(4, 1, 4)).toEqual('Isosceles Triangle');
     });
 });
