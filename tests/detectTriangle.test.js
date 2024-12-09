@@ -58,15 +58,15 @@ describe('Detect the triangle', () => {
     });
 
     it('Should detect Isosceles Triangle if only two sides are equal', () => {
-        expect(detectTriangle(1, 1, 2)).toEqual('Isosceles Triangle');
-        expect(detectTriangle(1, 2, 1)).toEqual('Isosceles Triangle');
+        expect(detectTriangle(2, 2, 3)).toEqual('Isosceles Triangle');
+        expect(detectTriangle(4, 2, 4)).toEqual('Isosceles Triangle');
         expect(detectTriangle(1, 2, 2)).toEqual('Isosceles Triangle');
 
         expect(detectTriangle(4, 1, 4)).toEqual('Isosceles Triangle');
     });
 
     // Sebagaimana biasanya, kita buatkan tesnya dahulu.
-    fit('Should detect Scalene Triangle if no sides are the same', () => {
+    it('Should detect Scalene Triangle if no sides are the same', () => {
         expect(detectTriangle(2, 4, 3)).toEqual('Scalene Triangle');
     });
 });
