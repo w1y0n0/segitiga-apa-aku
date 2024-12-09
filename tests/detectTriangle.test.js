@@ -13,6 +13,10 @@ const detectTriangle = (sideA, sideB, sideC) => {
             return side;
         })
         .sort();
+    
+    if (sideA + sideB <= sideC) {
+        throw new Error('Triangle does not conform inequality principle');
+    }
 
     if (sideA === sideB && sideA === sideC) {
         return 'Equilateral Triangle';
@@ -40,6 +44,14 @@ describe('Detect the triangle', () => {
         expect(() => detectTriangle(' ', 2, 2)).toThrowError('Sides have to be Integer');
     });
 
+    it('Should detect inequality problem', () => {
+        expect(() => detectTriangle(4, 1, 2))
+            .toThrowError('Triangle does not conform inequality principle');
+        expect(() => detectTriangle(5, 1, 3))
+            .toThrowError('Triangle does not conform inequality principle');
+    });
+
+    // Skenario mendeteksi segitiga
     it('Should detect Equilateral Triangle if all sides are equal', () => {
         expect(detectTriangle(1, 1, 1)).toEqual('Equilateral Triangle');
         expect(detectTriangle(1, 2, 2)).not.toEqual('Equilateral Triangle');
