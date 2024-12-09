@@ -66,7 +66,7 @@ describe('Detect the triangle', () => {
     });
 
     // Sebagaimana biasanya, kita buatkan tesnya dahulu.
-    it('Should detect Scalene Triangle if no sides are the same', () => {
-        expect(detectTriangle(1, 2, 3)).toEqual('Scalene Triangle');
+    fit('Should detect Scalene Triangle if no sides are the same', () => {
+        expect(detectTriangle(2, 4, 3)).toEqual('Scalene Triangle');
     });
 });
